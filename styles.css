@@ -1,0 +1,314 @@
+/* Facebook Gender Checker Styles */
+
+#fb-gender-checker-warning {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+  color: white;
+  padding: 12px 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.fb-gender-warning-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 15px;
+}
+
+.fb-gender-warning-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.fb-gender-warning-text {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.fb-gender-warning-close {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.fb-gender-warning-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.fb-gender-warning-close:active {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Status Indicator Styles */
+#fb-gender-checker-status {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: linear-gradient(135deg, #1877f2 0%, #166fe5 100%);
+  color: white;
+  padding: 10px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  animation: slideDown 0.3s ease-out;
+}
+
+.fb-gender-status-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 12px;
+}
+
+.fb-gender-status-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.fb-gender-status-text {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.fb-gender-status-close {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.fb-gender-status-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Adjust body padding when warning/status is shown */
+body:has(#fb-gender-checker-warning) {
+  padding-top: 60px;
+}
+
+body:has(#fb-gender-checker-status):not(:has(#fb-gender-checker-warning)) {
+  padding-top: 50px;
+}
+
+/* Profile Badge Styles - Visible on Profile Page */
+#fb-gender-checker-badge {
+  position: fixed !important;
+  top: 80px !important;
+  right: 20px !important;
+  margin: 0 !important;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  z-index: 99999 !important;
+  animation: slideInRight 0.4s ease-out;
+  max-width: 350px;
+  min-width: 300px;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+#fb-gender-checker-badge-profile {
+  position: relative !important;
+  margin: 15px 0 !important;
+  max-width: 400px;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.fb-gender-badge-content {
+  position: relative;
+  padding: 16px 20px;
+}
+
+.fb-gender-badge-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.fb-gender-badge-icon {
+  font-size: 20px;
+}
+
+.fb-gender-badge-title {
+  flex: 1;
+}
+
+.fb-gender-badge-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fb-gender-badge-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.fb-gender-badge-label {
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 500;
+}
+
+.fb-gender-badge-value {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.fb-gender-badge-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  color: inherit;
+}
+
+.fb-gender-badge-close:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Mismatch Badge - Red */
+.fb-gender-badge-mismatch {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+  color: white;
+  border: 2px solid #ff4757;
+}
+
+.fb-gender-badge-mismatch .fb-gender-badge-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.fb-gender-badge-mismatch .fb-gender-badge-value {
+  color: white;
+}
+
+/* Match Badge - Green */
+.fb-gender-badge-match {
+  background: linear-gradient(135deg, #51cf66 0%, #40c057 100%);
+  color: white;
+  border: 2px solid #37b24d;
+}
+
+.fb-gender-badge-match .fb-gender-badge-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.fb-gender-badge-match .fb-gender-badge-value {
+  color: white;
+}
+
+/* Partial Badge - Blue */
+.fb-gender-badge-partial {
+  background: linear-gradient(135deg, #4dabf7 0%, #339af0 100%);
+  color: white;
+  border: 2px solid #228be6;
+}
+
+.fb-gender-badge-partial .fb-gender-badge-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.fb-gender-badge-partial .fb-gender-badge-value {
+  color: white;
+}
+
+/* Unknown Badge - Gray */
+.fb-gender-badge-unknown {
+  background: linear-gradient(135deg, #868e96 0%, #495057 100%);
+  color: white;
+  border: 2px solid #343a40;
+}
+
+.fb-gender-badge-unknown .fb-gender-badge-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.fb-gender-badge-unknown .fb-gender-badge-value {
+  color: white;
+}
+

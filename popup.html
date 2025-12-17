@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facebook Gender Checker</title>
+  <style>
+    body {
+      width: 350px;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+    }
+    h1 {
+      font-size: 18px;
+      margin: 0 0 15px 0;
+      color: #1877f2;
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #65676b;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid #ccd0d5;
+      border-radius: 6px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #1877f2;
+    }
+    button {
+      background: #1877f2;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background: #166fe5;
+    }
+    button:active {
+      background: #1565c0;
+    }
+    .info {
+      font-size: 12px;
+      color: #65676b;
+      margin-top: 10px;
+      line-height: 1.4;
+    }
+    .status {
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .status.success {
+      background: #e7f3ff;
+      color: #1877f2;
+    }
+    .status.error {
+      background: #fff4e6;
+      color: #e65100;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔍 Facebook Gender Checker</h1>
+  
+  <div class="section">
+    <div class="info" style="background: #e7f3ff; padding: 12px; border-radius: 6px; margin-bottom: 15px;">
+      <strong>✅ Works Without API Key!</strong><br>
+      The extension uses free APIs that don't require registration. An API key is optional for better accuracy and higher rate limits.
+    </div>
+    
+    <label for="apiToken">API Token (Optional - For Better Results)</label>
+    <input type="text" id="apiToken" placeholder="Enter Hugging Face API token (optional)">
+    <div class="info">
+      <strong>Free APIs Used (No Key Required):</strong><br>
+      • Hugging Face public models (no auth required)<br>
+      • Genderize.io for name-based inference (free)<br><br>
+      <strong>Optional - Get Free Hugging Face Token:</strong><br>
+      1. Go to <a href="https://huggingface.co/join" target="_blank">huggingface.co/join</a><br>
+      2. Create free account<br>
+      3. Go to Settings → Access Tokens<br>
+      4. Create new token (read permission)<br>
+      5. Paste token here for better results
+    </div>
+    <button id="saveToken">Save Token</button>
+    <div id="tokenStatus"></div>
+  </div>
+
+  <div class="section">
+    <div class="info">
+      <strong>How to use:</strong><br>
+      1. Navigate to any Facebook profile page<br>
+      2. The extension automatically detects and analyzes the profile<br>
+      3. Look for status indicators at the top of the page<br>
+      4. Warnings appear if gender mismatches are detected<br><br>
+      
+      <strong>What it does:</strong><br>
+      • Extracts gender from profile "About" section<br>
+      • Infers gender from name (using Genderize.io - free)<br>
+      • Analyzes profile pictures using free AI APIs<br>
+      • Shows warnings when mismatches are detected<br><br>
+      
+      <strong>Note:</strong> Image analysis may have rate limits on free APIs. Adding a Hugging Face token improves reliability.
+    </div>
+  </div>
+
+  <div class="section">
+    <div style="background: #f0f2f5; padding: 12px; border-radius: 6px; margin-bottom: 15px;">
+      <strong style="display: block; margin-bottom: 8px;">Current Page Status:</strong>
+      <div id="currentStatus">Checking...</div>
+    </div>
+    
+    <button id="testButton" style="background: #42b72a; margin-top: 10px;">Force Check Current Page</button>
+    <div id="testStatus" style="margin-top: 10px;"></div>
+  </div>
+
+  <div class="section" style="border-top: 1px solid #ccd0d5; padding-top: 15px;">
+    <div class="info" style="background: #fff4e6; padding: 12px; border-radius: 6px;">
+      <strong>🔔 Where to see results:</strong><br>
+      • Look for a <strong>colored badge</strong> at the <strong>top-right</strong> of the profile page<br>
+      • Red = Mismatch detected<br>
+      • Green = Genders match<br>
+      • Blue = Partial analysis<br>
+      • Check browser console (F12) for detailed logs
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
+
